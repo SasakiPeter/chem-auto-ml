@@ -60,7 +60,7 @@ def lgb_opt(x_train, y_train):
         'subsample': hp.uniform('subsample', 0, 1),
         'subsample_freq': hp.choice('subsample_freq', np.arange(0, 2, dtype=int)),
         'colsample_bytree': hp.uniform('colsample_bytree', 0, 1),
-        'learning_rate': hp.uniform('eta', 1e-8, 0.1),
+        'learning_rate': hp.uniform('learning_rate', 1e-8, 0.1),
         'max_depth': hp.choice('max_depth', np.arange(1, 100, dtype=int)),
         'min_split_gain': hp.uniform('min_split_gain', 0, 1),
         'reg_alpha': hp.uniform('reg_alpha', 0, 1),

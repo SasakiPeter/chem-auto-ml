@@ -114,7 +114,7 @@ def lgb_train(x_train, y_train, params):
             )
 
             pred = clf.predict(val_x)
-            sc_auc = roc_auc_s
+            sc_auc = roc_auc_score(val_y, pred)
 
             list_auc_score.append(sc_auc)
             list_best_iterations.append(clf.best_iteration)

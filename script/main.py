@@ -1,3 +1,5 @@
+import os
+import pandas as pd
 from load_data import load_train_data, load_test_data
 from lgb_hyperopt import lgb_opt
 from lgb_train_test import lgb_train, lgb_test
@@ -5,6 +7,9 @@ from lgb_train_test import lgb_train, lgb_test
 from logging import StreamHandler, DEBUG, Formatter, FileHandler, getLogger
 logger = getLogger(__name__)
 
+DIR = 'result_tmp/'
+if not os.path.isdir(DIR):
+    os.makedirs(DIR)
 
 def main():
     log_fmt = Formatter(
@@ -33,7 +38,7 @@ def main():
     df_all = pd.concat([df_train, df_test], axis=0,
                        sort=False).sort_values('Name')
     x_all = df_all[use_cols]
-    lgb_test(x_test, x_all, use_cols)
+    lgb_test(x_test, x_all, cutoff)
 
 
 if __name__ == "__main__":
