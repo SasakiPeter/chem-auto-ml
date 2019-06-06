@@ -12,12 +12,12 @@ from load_data import load_train_data, load_test_data
 
 logger = getLogger(__name__)
 
-DIR = 'result_tmp/'
+DIR = '../result_tmp/'
 if not os.path.isdir(DIR):
     os.makedirs(DIR)
 
 
-def lgb_opt(x_train, y_train):
+def lgb_opt_params(x_train, y_train):
 
     log_fmt = Formatter(
         '%(asctime)s %(name)s %(lineno)d [%(levelname)s][%(funcName)s] %(message)s ')
@@ -92,4 +92,4 @@ if __name__ == "__main__":
     df_train = load_train_data()
     x_train = df_train.loc[:, '0':'2047']
     y_train = df_train['Active_Nonactive'].values
-    lgb_opt(x_train, y_train)
+    lgb_opt_params(x_train, y_train)
