@@ -215,7 +215,7 @@ def predict_test(x_test,  best_model_No, best_cutoff):
     logger.info('prediction start')
 
     logger.debug('load model start')
-    with open(DIR + 'model_lgb_clf.pkl-{}'.format(best_model_No), 'rb') as f:
+    with open(DIR + 'model_lgb_clf-{}.pkl'.format(best_model_No), 'rb') as f:
         clf = pickle.load(f)
     logger.debug('load model end')
 
@@ -224,7 +224,7 @@ def predict_test(x_test,  best_model_No, best_cutoff):
     logger.info('predict test data end {}'.format(pred_test.shape))
 
     logger.info('write prediction start')
-    df_submit = pd.read_csv(SAMPLE_SUBMIT_FILE).sort_values('Name')
+    df_submit = pd.read_csv(ALL_SAMPLE_SUBMIT_FILE).sort_values('Name')
     df_submit['Prediction'] = to_bin(pred_test, best_cutoff)
     df_submit.to_csv(DIR + 'submit_clf.csv', index=False)
     logger.info('write prediction end')

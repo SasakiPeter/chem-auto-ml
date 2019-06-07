@@ -12,7 +12,7 @@ from load_data import load_train_data, load_test_data
 
 logger = getLogger(__name__)
 
-DIR = '../result_tmp/'
+DIR = 'result_tmp/'
 if not os.path.isdir(DIR):
     os.makedirs(DIR)
 
