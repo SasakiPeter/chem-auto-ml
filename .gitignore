@@ -119,3 +119,6 @@ dmypy.json
 
 # data source folder
 input/
+
+# output folder
+result*/

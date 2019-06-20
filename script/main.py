@@ -32,7 +32,7 @@ def main():
 
     logger.info("start exploring best params without iteration")
     df_train = load_train_data()
-    x_train = df_train.loc[:, '0':'2047']
+    x_train = df_train.loc[:, 'ABC':'2047']
     y_train = df_train['Active_Nonactive'].values
     best_params = lgb_opt_params(x_train, y_train)
     logger.info("end exploring best params without iteration")
