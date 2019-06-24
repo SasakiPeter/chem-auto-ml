@@ -42,7 +42,7 @@ logger.addHandler(handler)
 def extract_descriptor(source, output):
     logger.info("start load sdf")
     df = PandasTools.LoadSDF(source)
-    df.Sol_pH74_Mean = df.Sol_pH74_Mean.astype(float)
+    # df.Sol_pH74_Mean = df.Sol_pH74_Mean.astype(float)
     logger.info("input shape {}".format(df.shape))
     logger.info("end load sdf")
 
@@ -73,12 +73,12 @@ def extract_descriptor(source, output):
     summary = pd.concat([df, descs, fps], axis=1)
     logger.info("summary shape {}".format(summary.shape))
     logger.info("start write out")
-    summary.to_csv(TRAIN_OUTPUT, encoding='utf-8', index=False)
+    summary.to_csv(output, encoding='utf-8', index=False)
     logger.info("end write out")
 
 
 def main():
-    extract_descriptor(TRAIN_SOURCE, TRAIN_OUTPUT)
+    # extract_descriptor(TRAIN_SOURCE, TRAIN_OUTPUT)
     extract_descriptor(TEST_SOURCE, TEST_OUTPUT)
 
 

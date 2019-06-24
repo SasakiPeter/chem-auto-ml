@@ -81,7 +81,7 @@ def lgb_opt_params(x_train, y_train):
     trials = Trials()
 
     best = fmin(fn=objective, space=space, algo=tpe.suggest,
-                trials=trials, max_evals=150)
+                trials=trials, max_evals=10)
 
     logger.info('best params {}'.format(best))
     logger.info('hyper optimization end')
